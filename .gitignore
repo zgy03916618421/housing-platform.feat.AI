@@ -1,0 +1,42 @@
+# ── Python (app1-backend) ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+
+# ── Node (portal) ──
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Java (app2-backend) ──
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+# ── 数据与运行时产物 ──
+*.db
+*.db-journal
+*.sqlite3
+*.log
+
+# ── 环境变量（保留 .env.example） ──
+.env
+.env.local
+.env.*.local
+
+# ── IDE / 系统 ──
+.idea/
+.vscode/
+*.iml
+.DS_Store
