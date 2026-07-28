@@ -16,3 +16,22 @@ services:
     container_name: ml-model
     ports:
       - "8000:8000"
+
+  app1-backend:
+    build: ./app1-backend
+    container_name: app1-backend
+    environment:
+      # compose 网络内通过服务名访问 ML 容器
+      ML_MODEL_URL: http://ml-model:8000
+      # SQLite 文件放在挂载卷中，容器重建后历史记录不丢失
+      DATABASE_URL: sqlite+aiosqlite:////data/estimates.db
+      CORS_ORIGINS: http://localhost:3000
+    volumes:
+      - app1-data:/data
+    ports:
+      - "8001:8001"
+    depends_on:
+      - ml-model
+
+volumes:
+  app1-data:

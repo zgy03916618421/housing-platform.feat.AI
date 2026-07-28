@@ -14,17 +14,17 @@
 
 ## Phase 1 — App 1 后端（FastAPI）
 
-- [ ] 1.1 用 uv 初始化项目，添加依赖：fastapi、uvicorn、httpx、sqlmodel、aiosqlite、pydantic-settings、pytest
-- [ ] 1.2 定义 Pydantic schemas：镜像 Task 1 的 7 字段约束（`square_footage` gt=0、`bedrooms` 1–20、`bathrooms` 0.5–20、`year_built` 1800–当前年、`lot_size` gt=0、`distance_to_city_center` ≥0、`school_rating` 0–10），请求体为数组契约（≥1 元素）
-- [ ] 1.3 实现 `ModelClient` 抽象（协议类）+ httpx async 实现：connect 2s / read 10s 超时，连接错误重试 1 次，非 2xx → 502，不可达/超时 → 503
-- [ ] 1.4 实现 SQLite 存储层（SQLModel）：`estimates` 表（id、created_at、features JSON、prediction、batch_id）
-- [ ] 1.5 实现 `POST /api/estimates`：校验 → 转发 ML 容器 → 原子持久化 N 条（同批共享 batch_id）→ 返回带 id 的预测结果
-- [ ] 1.6 实现 `GET /api/estimates`（分页 limit/offset）与 `GET /api/estimates/{id}`
-- [ ] 1.7 实现 `GET /api/model-info`（代理 Task 1 `GET /model`）与 `GET /api/health`（自身存活 + 探测 ML 容器 `/health`）
-- [ ] 1.8 实现统一错误处理：exception handler 把 Pydantic 422、ML 容器错误、未预期异常包装为 `{ "error": { code, message, details } }` 格式
-- [ ] 1.9 配置 CORS：允许 Next.js 开发源（`http://localhost:3000`）
-- [ ] 1.10 编写 pytest 测试：ModelClient 替换为 stub，覆盖校验失败、ML 容器 4xx/5xx/超时、批量提交、历史分页
-- [ ] 1.11 编写 Dockerfile（Python 3.12+，uv sync，uvicorn 启动）
+- [x] 1.1 用 uv 初始化项目，添加依赖：fastapi、uvicorn、httpx、sqlmodel、aiosqlite、pydantic-settings、pytest
+- [x] 1.2 定义 Pydantic schemas：镜像 Task 1 的 7 字段约束（`square_footage` gt=0、`bedrooms` 1–20、`bathrooms` 0.5–20、`year_built` 1800–当前年、`lot_size` gt=0、`distance_to_city_center` ≥0、`school_rating` 0–10），请求体为数组契约（≥1 元素）
+- [x] 1.3 实现 `ModelClient` 抽象（协议类）+ httpx async 实现：connect 2s / read 10s 超时，连接错误重试 1 次，非 2xx → 502，不可达/超时 → 503
+- [x] 1.4 实现 SQLite 存储层（SQLModel）：`estimates` 表（id、created_at、features JSON、prediction、batch_id）
+- [x] 1.5 实现 `POST /api/estimates`：校验 → 转发 ML 容器 → 原子持久化 N 条（同批共享 batch_id）→ 返回带 id 的预测结果
+- [x] 1.6 实现 `GET /api/estimates`（分页 limit/offset）与 `GET /api/estimates/{id}`
+- [x] 1.7 实现 `GET /api/model-info`（代理 Task 1 `GET /model`）与 `GET /api/health`（自身存活 + 探测 ML 容器 `/health`）
+- [x] 1.8 实现统一错误处理：exception handler 把 Pydantic 422、ML 容器错误、未预期异常包装为 `{ "error": { code, message, details } }` 格式
+- [x] 1.9 配置 CORS：允许 Next.js 开发源（`http://localhost:3000`）
+- [x] 1.10 编写 pytest 测试：ModelClient 替换为 stub，覆盖校验失败、ML 容器 4xx/5xx/超时、批量提交、历史分页（24 项全通过；另完成真实 ML 容器端到端冒烟）
+- [x] 1.11 编写 Dockerfile（Python 3.12+，uv sync，uvicorn 启动）
 
 ## Phase 2 — Next.js Portal 骨架
 
