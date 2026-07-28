@@ -1,0 +1,11 @@
+# ── 依赖与构建产物 ──
+node_modules
+.next
+out
+
+# ── 本地环境 ──
+.env*.local
+
+# ── Docker 自身 ──
+Dockerfile
+.dockerignore

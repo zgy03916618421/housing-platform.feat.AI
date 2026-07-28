@@ -28,10 +28,10 @@
 
 ## Phase 2 — Next.js Portal 骨架
 
-- [ ] 2.1 create-next-app（App Router + TypeScript + Tailwind CSS）
-- [ ] 2.2 共享 layout 与导航：App 1 / App 2 之间切换，一致的设计系统
-- [ ] 2.3 布局级 loading / error 状态（loading.tsx、error.tsx、全局错误边界）
-- [ ] 2.4 基础 UI 组件库：按钮、卡片、表单控件（遵循 WCAG 可访问性）
+- [x] 2.1 create-next-app（App Router + TypeScript + Tailwind CSS）（Next 16.2.12 / React 19 / Tailwind v4）
+- [x] 2.2 共享 layout 与导航：App 1 / App 2 之间切换，一致的设计系统（SiteHeader/SiteFooter，激活态 aria-current，跳转主内容链接）
+- [x] 2.3 布局级 loading / error 状态（loading.tsx、error.tsx（Next 16 的 unstable_retry）、global-error.tsx、not-found.tsx）
+- [x] 2.4 基础 UI 组件库：按钮、卡片、表单控件（Button/Card/Input/Label/Alert/Spinner，遵循 WCAG 可访问性）
 
 ## Phase 3 — App 1 前端（Property Value Estimator）
 
