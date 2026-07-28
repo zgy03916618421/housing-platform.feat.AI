@@ -7,10 +7,10 @@
 
 ## Phase 0 — 项目基础设施
 
-- [ ] 0.0 `git init` + 创建 `.gitignore`（Python/Node/Java/SQLite/IDE）+ 首次提交规划文档（git 操作逐次确认）
-- [ ] 0.1 初始化 monorepo 目录结构：`portal/`（Next.js）、`app1-backend/`（FastAPI）、`app2-backend/`（Spring Boot）
-- [ ] 0.2 编写 `docker-compose.yml`：编排 Task 1 ML 容器（端口 8000）、App 1 后端（8001）、App 2 后端（8080）、Portal（3000），配置服务间网络与环境变量
-- [ ] 0.3 约定环境变量：`ML_MODEL_URL`（默认 `http://localhost:8000`，compose 中为服务名）等
+- [x] 0.0 `git init` + 创建 `.gitignore`（Python/Node/Java/SQLite/IDE）+ 首次提交规划文档（git 操作逐次确认）
+- [x] 0.1 初始化 monorepo 目录结构：`portal/`（Next.js）、`app1-backend/`（FastAPI）、`app2-backend/`（Spring Boot）
+- [x] 0.2 编写 `docker-compose.yml`：编排 Task 1 ML 容器（端口 8000）、App 1 后端（8001）、App 2 后端（8080）、Portal（3000），配置服务间网络与环境变量（当前仅含 ml-model，其余服务随 Phase 进度加入）
+- [x] 0.3 约定环境变量：`ML_MODEL_URL`（默认 `http://localhost:8000`，compose 中为服务名）等（见 `.env.example`）
 
 ## Phase 1 — App 1 后端（FastAPI）
 

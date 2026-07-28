@@ -1,0 +1,18 @@
+# docker-compose — Multi-Application Next.js Portal
+#
+# 端口分配：
+#   ml-model      8000  Task 1 ML 推理容器
+#   app1-backend  8001  FastAPI（Phase 1 加入）
+#   app2-backend  8080  Spring Boot（Phase 4 加入）
+#   portal        3000  Next.js（Phase 2 加入）
+#
+# 服务按 Phase 进度逐步加入：当前仅包含 ml-model，保证 compose 始终可运行。
+
+services:
+  ml-model:
+    # Task 1 代码库在仓库之外；如需在其他机器构建，先将 Task 1 复制到本仓库同级或调整此路径
+    build: ../interview-task
+    image: housing-price-api
+    container_name: ml-model
+    ports:
+      - "8000:8000"
