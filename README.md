@@ -89,17 +89,7 @@ The applications interact with the model container through these endpoints:
 - Sortable and filterable data table
 - CSV / PDF data export
 
-## Docker Compose Quick Start
 
-Ensure the model code is available at `../interview-task` (a sibling directory of this repository), then run:
-
-```bash
-docker compose up --build
-```
-
-Visit http://localhost:3000.
-
-> Note: By default, `portal` calls the backends directly from the browser at `localhost:8001` and `localhost:8080`. If you run Docker on a remote host, update `APP1_API_URL` / `APP2_API_URL` in `portal/lib/config.ts`, or pass the corresponding `NEXT_PUBLIC_*` values as build args.
 
 ## Testing
 
