@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { CompareResults } from "@/components/estimator/compare-results";
 import { SAMPLE_PROPERTY } from "@/components/estimator/property-form";
 import { useEstimateSubmit } from "@/hooks/use-estimate-submit";
+import { createEstimates } from "@/lib/api/estimates";
 import {
   PROPERTY_FIELDS,
   propertySchema,
@@ -39,7 +40,7 @@ const SECOND_SAMPLE: PropertyFeatures = {
 };
 
 export function CompareClient() {
-  const { state, submit } = useEstimateSubmit();
+  const { state, submit } = useEstimateSubmit(createEstimates);
   const {
     register,
     control,

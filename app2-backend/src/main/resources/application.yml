@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+app:
+  # Task 1 ML 容器地址：本地开发 localhost；compose 内用服务名 http://ml-model:8000
+  ml-model-url: http://localhost:8000
+  # 允许的前端源
+  cors-origins:
+    - http://localhost:3000
+
+spring:
+  application:
+    name: app2-backend
+  cache:
+    caffeine:
+      # 数据集是静态 CSV，缓存主要演示“性能优化”语义：TTL 10 分钟
+      spec: expireAfterWrite=10m,maximumSize=200
+
+logging:
+  level:
+    com.property.app2: INFO

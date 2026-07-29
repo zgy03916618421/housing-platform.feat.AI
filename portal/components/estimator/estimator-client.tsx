@@ -6,9 +6,10 @@ import { Card } from "@/components/ui/card";
 import { EstimateResults } from "@/components/estimator/estimate-results";
 import { PropertyForm } from "@/components/estimator/property-form";
 import { useEstimateSubmit } from "@/hooks/use-estimate-submit";
+import { createEstimates } from "@/lib/api/estimates";
 
 export function EstimatorClient() {
-  const { state, submit } = useEstimateSubmit();
+  const { state, submit } = useEstimateSubmit(createEstimates);
 
   return (
     <div className="space-y-6">

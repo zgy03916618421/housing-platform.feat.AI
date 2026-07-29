@@ -33,6 +33,17 @@ services:
     depends_on:
       - ml-model
 
+  app2-backend:
+    build: ./app2-backend
+    container_name: app2-backend
+    environment:
+      # compose 网络内通过服务名访问 ML 容器（Spring relaxed binding：app.ml-model-url）
+      APP_MLMODELURL: http://ml-model:8000
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ml-model
+
   portal:
     build: ./portal
     container_name: portal
@@ -41,10 +52,12 @@ services:
     environment:
       # RSC 服务端数据获取走 compose 内部网络（运行时读取，非构建期内联）
       APP1_API_URL_SERVER: http://app1-backend:8001
+      APP2_API_URL_SERVER: http://app2-backend:8080
     ports:
       - "3000:3000"
     depends_on:
       - app1-backend
+      - app2-backend
 
 volumes:
   app1-data:

@@ -43,10 +43,10 @@
 
 ## Phase 4 — App 2（Property Market Analysis）
 
-- [ ] 4.1 Spring Boot 3.4.4 / Java 21 项目初始化
-- [ ] 4.2 REST 端点：市场分析、聚合统计（基于 housing 数据集）、缓存
-- [ ] 4.3 集成 ML 容器（what-if 分析）
-- [ ] 4.4 前端仪表盘：可视化、过滤器、what-if 工具、CSV/PDF 导出、可排序数据表格
+- [x] 4.1 Spring Boot 3.4.4 / Java 21 项目初始化
+- [x] 4.2 REST 端点：市场分析、聚合统计（基于 housing 数据集）、缓存
+- [x] 4.3 集成 ML 容器（what-if 分析）
+- [x] 4.4 前端仪表盘：可视化、过滤器、what-if 工具、CSV/PDF 导出、可排序数据表格
 
 ## Phase 5 — 端到端验收
 
