@@ -16,10 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "房产门户",
-    template: "%s | 房产门户",
+    default: "Property Portal",
+    template: "%s | Property Portal",
   },
-  description: "统一门户：房产价值估算（App 1）与房产市场分析（App 2）",
+  description:
+    "A unified portal hosting two apps: Property Value Estimator (App 1) and Property Market Analysis (App 2).",
 };
 
 export default function RootLayout({
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="zh-CN"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
@@ -38,7 +39,7 @@ export default function RootLayout({
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded-md focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white"
         >
-          跳转到主要内容
+          Skip to main content
         </a>
         <SiteHeader />
         <main

@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { href: "/", label: "首页" },
-  { href: "/estimator", label: "价值估算" },
-  { href: "/analysis", label: "市场分析" },
+  { href: "/", label: "Home" },
+  { href: "/estimator", label: "Estimator" },
+  { href: "/analysis", label: "Market Analysis" },
 ] as const;
 
 function isActive(pathname: string, href: string): boolean {
@@ -25,9 +25,9 @@ export function SiteHeader() {
           href="/"
           className="rounded-md text-base font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          房产门户
+          Property Portal
         </Link>
-        <nav aria-label="主导航" className="flex items-center gap-1">
+        <nav aria-label="Main navigation" className="flex items-center gap-1">
           {NAV_ITEMS.map((item) => {
             const active = isActive(pathname, item.href);
             return (

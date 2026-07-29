@@ -20,17 +20,17 @@ export default function Error({ error, unstable_retry }: ErrorProps) {
     <div className="mx-auto max-w-lg py-16">
       <Alert
         variant="error"
-        title="页面出错了"
-        description={error.message || "发生未预期错误，请重试。"}
+        title="Something went wrong"
+        description={error.message || "An unexpected error occurred. Please try again."}
       />
       <div className="mt-6 flex gap-3">
-        <Button onClick={() => unstable_retry()}>重试</Button>
+        <Button onClick={() => unstable_retry()}>Try again</Button>
         <Button variant="secondary" onClick={() => window.location.reload()}>
-          刷新页面
+          Reload page
         </Button>
       </div>
       {error.digest ? (
-        <p className="mt-4 text-xs text-zinc-500">错误编号：{error.digest}</p>
+        <p className="mt-4 text-xs text-zinc-500">Error ID: {error.digest}</p>
       ) : null}
     </div>
   );

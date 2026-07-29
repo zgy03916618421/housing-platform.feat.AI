@@ -1,5 +1,5 @@
 /** 加载指示器：role="status" + 屏幕阅读器文本（WCAG 4.1.3） */
-export function Spinner({ label = "加载中" }: { label?: string }) {
+export function Spinner({ label = "Loading" }: { label?: string }) {
   return (
     <div role="status" className="flex items-center justify-center gap-3">
       <svg

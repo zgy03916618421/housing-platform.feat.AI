@@ -4,16 +4,16 @@ import { Card } from "@/components/ui/card";
 const APPS = [
   {
     href: "/estimator",
-    name: "房产价值估算",
+    name: "Property Value Estimator",
     description:
-      "输入属性特征（面积、卧室、建造年份等），由 ML 回归模型给出估价；支持历史估算与多属性对比。",
+      "Enter property features (area, bedrooms, year built, and more) to get a price estimate from the ML regression model. Includes estimate history and side-by-side comparison.",
     tag: "App 1 · FastAPI",
   },
   {
     href: "/analysis",
-    name: "房产市场分析",
+    name: "Property Market Analysis",
     description:
-      "市场仪表盘、分段筛选、what-if 情景分析与数据导出。",
+      "Market dashboard, segment filters, what-if analysis, and data export.",
     tag: "App 2 · Spring Boot",
   },
 ] as const;
@@ -22,9 +22,10 @@ export default function HomePage() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">房产门户</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Property Portal</h1>
         <p className="max-w-2xl text-zinc-600 dark:text-zinc-400">
-          两个独立的应用共享同一个 ML 房价模型。选择一个应用开始。
+          Two independent apps powered by one ML housing-price model. Pick an
+          app to get started.
         </p>
       </div>
       <div className="grid gap-6 sm:grid-cols-2">
@@ -43,7 +44,7 @@ export default function HomePage() {
                 {app.description}
               </p>
               <p className="mt-4 text-sm font-medium text-indigo-600 group-hover:underline dark:text-indigo-400">
-                进入应用 →
+                Open app →
               </p>
             </Card>
           </Link>

@@ -11,7 +11,7 @@ type GlobalErrorProps = {
  */
 export default function GlobalError({ error, unstable_retry }: GlobalErrorProps) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body
         style={{
           fontFamily: "system-ui, -apple-system, sans-serif",
@@ -20,9 +20,11 @@ export default function GlobalError({ error, unstable_retry }: GlobalErrorProps)
           padding: "4rem 1rem",
         }}
       >
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>应用出现严重错误</h1>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
+          Something went wrong
+        </h1>
         <p role="alert" style={{ marginTop: "0.75rem", color: "#b91c1c" }}>
-          {error.message || "发生未预期错误，请重试。"}
+          {error.message || "An unexpected error occurred. Please try again."}
         </p>
         <button
           onClick={() => unstable_retry()}
@@ -35,7 +37,7 @@ export default function GlobalError({ error, unstable_retry }: GlobalErrorProps)
             fontSize: "0.875rem",
           }}
         >
-          重试
+          Try again
         </button>
       </body>
     </html>
