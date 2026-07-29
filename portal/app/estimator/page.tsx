@@ -1,27 +1,37 @@
+// 估算主页（RSC）：服务端加载模型指标作为初始数据，表单交互在客户端组件中
 import type { Metadata } from "next";
+import { EstimatorClient } from "@/components/estimator/estimator-client";
+import { ModelInfoCard } from "@/components/estimator/model-info-card";
 import { Alert } from "@/components/ui/alert";
+import { getModelInfo } from "@/lib/api/estimates";
+import { APP1_API_URL_SERVER } from "@/lib/config";
+import type { ModelInfo } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Property Value Estimator",
+  title: "New estimate",
 };
 
-export default function EstimatorPage() {
+export default async function EstimatorPage() {
+  // RSC 初始数据加载：失败不阻塞表单使用
+  let info: ModelInfo | null = null;
+  try {
+    info = await getModelInfo(APP1_API_URL_SERVER);
+  } catch {
+    info = null;
+  }
+
   return (
     <div className="space-y-6">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight">
-          Property Value Estimator
-        </h1>
-        <p className="text-zinc-600 dark:text-zinc-400">
-          Enter property features and get a price estimate from the ML
-          regression model.
-        </p>
-      </div>
-      <Alert
-        variant="info"
-        title="Under construction"
-        description="The estimate form, result charts, history, and comparison view will be implemented in Phase 3. The backend API is ready (app1-backend, port 8001)."
-      />
+      {info ? (
+        <ModelInfoCard info={info} />
+      ) : (
+        <Alert
+          variant="info"
+          title="Model metrics unavailable"
+          description="Could not load model info from the backend. You can still submit estimates."
+        />
+      )}
+      <EstimatorClient />
     </div>
   );
 }

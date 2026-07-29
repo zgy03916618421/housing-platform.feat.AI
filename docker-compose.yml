@@ -38,6 +38,9 @@ services:
     container_name: portal
     # 说明：前端通过浏览器直连后端（默认 http://localhost:8001 / :8080，见 portal/lib/config.ts）。
     # NEXT_PUBLIC_* 变量在构建期内联，若需改动须作为 build args 传入而非此处 environment。
+    environment:
+      # RSC 服务端数据获取走 compose 内部网络（运行时读取，非构建期内联）
+      APP1_API_URL_SERVER: http://app1-backend:8001
     ports:
       - "3000:3000"
     depends_on:

@@ -35,11 +35,11 @@
 
 ## Phase 3 — App 1 前端（Property Value Estimator）
 
-- [ ] 3.1 属性输入表单：react-hook-form + zod，7 字段，客户端校验规则与后端 Pydantic 约束同步
-- [ ] 3.2 结果展示：表格 + 图表（recharts），附模型 R²/RMSE（来自 `/api/model-info`）
-- [ ] 3.3 历史估算页：分页列表，可查看单条详情
-- [ ] 3.4 对比视图：多属性 side-by-side（复用 `POST /api/estimates` 数组契约）
-- [ ] 3.5 API client 封装 + 自定义 hooks（useEstimates 等）+ 统一错误/加载态
+- [x] 3.1 属性输入表单：react-hook-form + zod，7 字段，客户端校验规则与后端 Pydantic 约束同步
+- [x] 3.2 结果展示：表格 + 图表（recharts），附模型 R²/RMSE（来自 `/api/model-info`，RSC 服务端加载）
+- [x] 3.3 历史估算页：RSC 服务端分页列表（?page= 导航），单条详情（404 走 not-found 边界）
+- [x] 3.4 对比视图：2–5 个属性 side-by-side（useFieldArray，复用 `POST /api/estimates` 数组契约）
+- [x] 3.5 API client 封装 + 自定义 hooks（useEstimateSubmit）+ 统一错误/加载态
 
 ## Phase 4 — App 2（Property Market Analysis）
 
